@@ -2,16 +2,21 @@ package academy.digitallab.store.customer.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
-@Data
+
 @Entity(name="Customer")
+@Data @Getter @Setter
 @Table(name="tbl_customers")
+
 
 public class Customer {
 
@@ -45,5 +50,16 @@ public class Customer {
     @JoinColumn(name = "region_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Region region;
+
+    private String state;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name="create_at")
+    private Date createAt;
+
+    @PrePersist
+    public void prePersist(){
+        this.createAt = new Date();
+    }
 
 }

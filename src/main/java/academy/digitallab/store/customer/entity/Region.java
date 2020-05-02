@@ -1,11 +1,14 @@
 package academy.digitallab.store.customer.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+
 @Entity(name="Region")
+@Data @Getter @Setter
 @Table(name="tbl_regions")
 public class Region {
 
