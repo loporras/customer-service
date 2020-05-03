@@ -4,9 +4,11 @@ import academy.digitallab.store.customer.entity.Customer;
 import academy.digitallab.store.customer.entity.Region;
 import academy.digitallab.store.customer.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CustomerServiceImpl implements CustomerService{
 
     @Autowired
@@ -17,8 +19,13 @@ public class CustomerServiceImpl implements CustomerService{
     public Customer findCustomerByNumberId(String numberId) { return customerRepository.findByNumberId(numberId); }
 
     @Override
+    public Customer findByIdCustomer(Long id) {
+        return customerRepository.findById(id).orElse(null);
+    }
+
+    @Override
     public List<Customer> findCustomerByLastName(String lastName) {
-        return customerRepository.finByLastName(lastName);
+        return customerRepository.findByLastName(lastName);
     }
 
     @Override

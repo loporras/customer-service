@@ -8,6 +8,7 @@ import java.util.List;
 public interface CustomerService {
 
     public Customer findCustomerByNumberId(String numberId);
+    public Customer findByIdCustomer(Long id);
     public List<Customer> findCustomerByLastName(String lastName);
     public List<Customer> findCustomerByRegion(Region region);
     public List<Customer> findAllCustomer();

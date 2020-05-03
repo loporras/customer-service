@@ -11,6 +11,6 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     public Customer findByNumberId(String numberId);
-    public List<Customer> finByLastName(String lastName);
+    public List<Customer> findByLastName(String lastName);
     public List<Customer> findByRegion (Region region);
 }
